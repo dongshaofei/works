@@ -6,32 +6,15 @@ window.addEventListener('DOMContentLoaded',function(){
 	
 
 	
-//-----------------------page2 屏保-----------------------
-
+//-----------------------page2 个人信息-----------------------
+	
 	var oCir1=document.querySelector('.circle1');
 	var oCir2=document.querySelector('.circle2');
 	var oA=document.querySelector('#oA');//音乐
 	var oHeader2=document.querySelector('#header2');
 
-	$(function(){
-		$('.circle1').on('tap',function(){
-			move(oCir1,{opacity:0},{time:1500,end:function(){
-				oC.style.display='block';
-				move(oCir2,{opacity:1},{time:1500,end:function(){
-					oA.src='mp3/My Songs Know What You Did In The Dark Light Em Up.mp3';
-					oA.play();
-					$('.circle2').on('tap',function(){
-						oC.style.display='none';
-						move(oCir2,{opacity:0},{time:1500,end:function(){
-							move(oCir1,{opacity:1},{time:1500});
-							oA.src='';
-						}});
-					});
-				}});
-			}});
-		});
-	});
-		
+
+	
 	//屏保
 	var oC=document.querySelector('#oc');
 	var gd=oC.getContext('2d');
@@ -103,8 +86,70 @@ window.addEventListener('DOMContentLoaded',function(){
 		},16);
 	})();
 
+//-----------------------page3 工作经历-----------------------
+	
 
-//-----------------------page3 计算器-----------------------
+//-----------------------page4 IT 技能-----------------------
+	
+	var oBox3=document.querySelector('#box3');
+	var oUl=document.querySelector('#box3 ul');
+	var aLi=document.querySelectorAll('#box3 li');
+	var aP=document.querySelectorAll('#box3 p');
+	var disB=oBox3.offsetHeight/2;
+	var aImg=document.querySelectorAll('#box3 img');
+	var oW=document.documentElement.clientWidth;
+	oUl.style.height=aLi.length*aLi[0].offsetHeight+'px';
+	//oUl的总高度
+
+	
+	function setSize(){
+		for(var i=0;i<aLi.length;i++){
+			var dis=Math.abs(disB-(oUl.offsetTop+aLi[i].offsetTop+aLi[i].offsetHeight/2));
+			var scale=1-dis/500;
+			(scale<.5)&&(scale=.5);    //scale<.5时，scale=.5
+			
+			aImg[i].style.width=oW*scale+'px';
+			aImg[i].style.height=oBox3.offsetHeight*scale+'px';
+			aImg[i].style.marginTop=-(aImg[i].offsetHeight-oBox3.offsetHeight/2)/2+'px';
+			aImg[i].style.marginLeft=-(aImg[i].offsetWidth-oW*0.6)/2+'px';
+			aLi[i].style.zIndex=scale*1000;
+			aP[i].style.width=oW*scale+'px';
+			aP[i].style.height=oBox3.offsetHeight*scale+'px';
+			aP[i].style.marginTop=-(aP[i].offsetHeight-oBox3.offsetHeight/2)/2+'px';
+			aP[i].style.marginLeft=-(aP[i].offsetWidth-oW*0.6)/2+'px';
+		}
+	}
+
+	oUl.addEventListener('touchstart',function(ev){
+
+		disY=ev.targetTouches[0].clientY-oUl.offsetTop;
+
+		function fnMove(ev){
+			var t=ev.targetTouches[0].clientY-disY;
+			
+			if(t>disB-aLi[0].offsetHeight/2){
+				t=disB-aLi[0].offsetHeight/2+'px';
+			}
+			if(t<(-oUl.offsetHeight+aLi[0].offsetHeight/2+disB)){
+				t=-oUl.offsetHeight+aLi[0].offsetHeight/2+disB+'px';
+			}
+           //规定界限
+           	setSize();
+			oUl.style.top=t+'px';
+
+		}
+		function fnEnd(ev){
+			document.removeEventListener('touchmove',fnMove,false);
+			document.removeEventListener('touchend',fnEnd,false);	
+		}
+		document.addEventListener('touchmove',fnMove,false);
+		document.addEventListener('touchend',fnEnd,false);
+		ev.preventDefault();	
+	},false);
+	oUl.style.top=-(aImg[0].offsetHeight*0.5-disB)+'px';
+	//第二张图在中间
+	setSize();
+//-----------------------page5 计算器-----------------------
 
 	var oOut=document.querySelector('#out');
 	var oIn=document.querySelector('#in');
@@ -321,105 +366,7 @@ window.addEventListener('DOMContentLoaded',function(){
 	});
 
 
-//-----------------------page4 立方体-----------------------
-	var oBox=document.querySelector('.box');
 
-	(function(){
-		var x=30;
-		var y=-60;
-		
-		oBox.addEventListener('touchstart',function(ev){
-			var disX=ev.targetTouches[0].pageX-x;
-			var disY=ev.targetTouches[0].pageY-y;
-				
-				
-			function fnMove(ev){
-				x=ev.targetTouches[0].pageX-disX;
-				y=ev.targetTouches[0].pageY-disY;
-				oBox.style.WebkitTransform='perspective(1200px) rotateX(-'+y+'deg) rotateY('+x+'deg)';
-			}
-			function fnEnd(ev){
-				document.removeEventListener('touchmove',fnMove,false);
-				document.removeEventListener('touchend',fnEnd,false);				
-			}
-			document.addEventListener('touchmove',fnMove,false);
-			document.addEventListener('touchend',fnEnd,false);
-			ev.preventDefault();	
-		},false);
-	})();
 
-//-----------------------page5 抛体运动-----------------------
-	;(function(){
-		var oBox3=document.querySelector('#box3');
-		var oDiv=document.querySelector('#div1');
-		var oW=document.documentElement.clientWidth-oDiv.offsetWidth;
-		var oH=oBox3.offsetHeight-oDiv.offsetHeight;
-		var speedX=0;
-		var speedY=0;
-		var lastX=0;
-		var lastY=0;
-		var timer=null;
-		var i=0;
-
-		function collision(){
-			clearInterval(timer);
-			timer=setInterval(function(){
-				speedY+=3;
-				var l=oDiv.offsetLeft+speedX;
-				var t=oDiv.offsetTop+speedY;
-				if(l<=0){
-					l=0;
-					speedX*=-.7;
-					speedY*=.7;
-				}
-				if(l>=oW){
-					l=oW;
-					speedX*=-.7;
-					speedY*=.7;
-				}
-				if(t<=0){
-					t=0;
-					speedY*=-.7;
-					speedX*=.7;
-				}
-				if(t>=oH){
-					t=oH;
-					speedY*=-.7;
-					speedX*=.7
-				}
-				oDiv.style.left=l+'px';
-				oDiv.style.top=t+'px';
-				if(Math.abs(speedX)<1) speedX=0;
-				if(Math.abs(speedY)<1) speedY=0;
-				if(speedX==0 && speedY==0 && t==oH){
-					clearInterval(timer)
-				}
-			},30)
-		}
-
-		oDiv.addEventListener('touchstart',function(ev){
-			var disX=ev.targetTouches[0].clientX-oDiv.offsetLeft;
-			var disY=ev.targetTouches[0].clientY-oDiv.offsetTop;
-
-			function fnMove(ev){
-				var oEvent=ev||event;
-
-				oDiv.style.left=ev.targetTouches[0].clientX-disX+'px';
-				oDiv.style.top=ev.targetTouches[0].clientY-disY+'px';
-
-				speedX=ev.targetTouches[0].clientX-lastX;
-				speedY=ev.targetTouches[0].clientY-lastY;
-				lastX=ev.targetTouches[0].clientX;
-				lastY=ev.targetTouches[0].clientY;
-			}
-			function fnEnd(ev){
-				document.removeEventListener('touchmove',fnMove,false);
-				document.removeEventListener('touchend',fnEnd,false);
-				collision();
-			}
-			document.addEventListener('touchmove',fnMove,false);
-			document.addEventListener('touchend',fnEnd,false);
-			ev.preventDefault();
-		},false);
-	})();
+	
 },false)

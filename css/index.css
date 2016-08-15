@@ -10,20 +10,35 @@
 *{ margin:0; padding:0; list-style:none; }
 
 /*-----------------------page2-----------------------*/
-
+#information{ font-size:0.9rem; line-height:1.8rem; }
 #box2{ width:100%; height:14rem;  position:absolute; left:0; bottom:0; overflow:hidden;}
-.circle1{ width:3rem; height:3rem;  border-radius:50%; position:absolute; left:50%; bottom:0.5rem; margin-left:-1.5rem; border:2px blue dashed; animation:run 3s linear infinite; font-size:1.5rem; font-family:'微软雅黑'; text-align:center; line-height:3rem; color:#fff;}
-.circle2{ width:1.5rem; height:1.5rem;  border-radius:50%; position:absolute; left:50%; bottom:0.5rem; margin-left:-0.75rem; border:2px blue dashed; animation:run 3s linear infinite; font-size:0.6rem; font-family:'微软雅黑'; text-align:center; line-height:1.5rem; color:#fff; opacity:0;}
-canvas{ width:100%; height:100%; display:none; }
+.circle{ width:1.7rem; height:1.7rem;  border-radius:50%; position:absolute; left:50%; bottom:0.8rem; margin-left:-0.85rem; border:2px blue dashed; animation:run 5s linear infinite; font-size:0.6rem; font-family:'微软雅黑'; text-align:center; line-height:1.5rem; color:#fff; }
+.circle img{ width:1.7rem; height:1.7rem;  border-radius:50%;}
+canvas{ width:100%; height:100%; }
 
 /*-----------------------page3-----------------------*/
 
-#page3 section{ width:100%; height:14rem;  position:absolute; left:0; bottom:0; overflow:hidden;}
+#page3 section p{ margin-top:0.5rem; font-size:0.55rem; line-height:0.8rem; font-weight:bold;}
+#page3 section p:nth-child(11){ margin-bottom:1.3rem; }
 
-#out{ width:6rem; height:6rem; border:1px solid #000; border-radius:50%; position:absolute; left:50%; top:32%; margin-left:-3rem; }
-#in{ width:4rem; height:4rem; border:1px solid #000; border-radius:50%; position:absolute; left:50%; top:50%; margin-left:-2rem; margin-top:-2rem;} 
-#out span{ width:1rem; height:1rem; border:1px solid blue; border-radius:50%; position:absolute; margin-left:-0.5rem; margin-top:-0.5rem; text-align:center; line-height:1rem; font-size:50px; font-weight:bold; animation:run 3s linear infinite; box-shadow:0 -5px 10px green,5px 0 10px blue,0 5px 10px yellow,-5px 0 10px pink; overflow:hidden; }
-#in div{ width:0.8rem; height:0.8rem; border:1px solid blue; border-radius:50%; position:absolute; margin-left:-0.4rem; margin-top:-0.4rem; text-align:center; line-height:0.8rem; font-size:35px; font-weight:bold; overflow:hidden; animation:run 3s linear infinite; box-shadow:0 -5px 10px green,5px 0 10px blue,0 5px 10px yellow,-5px 0 10px pink;}
+/*-----------------------page4-----------------------*/
+*{ margin:0; padding:0; list-style:none; }
+#page4 section{ width:100%; height:14rem;  position:absolute; left:0; bottom:0; }
+#box3{ width:100%; height:100%;   position:relative; overflow:hidden;}
+#box3 ul{ width:60%; position:absolute; left:50%; top:0; margin-left:-30%;}
+#box3 ul li{ width:100%; height:7rem;  position:relative; z-index:1; }
+#box3 ul li img{ width:100%; height:7rem;  position:absolute;}
+#box3 ul li p{  width:100%; height:7rem; position:absolute; font-size:0.7rem; line-height:1.3rem; z-index:1000; font-weight:bold; overflow:hidden;}
+#box3 ul li span{  width:80%; height:100%; position:absolute; left:10%; top:10%;  word-wrap:break-word; }
+
+/*-----------------------page5-----------------------*/
+
+#page5 section{ width:100%; height:14rem;  position:absolute; left:0; bottom:0; overflow:hidden;}
+
+#out{ width:7rem; height:7rem;  border-radius:50%; position:absolute; left:50%; top:32%; margin-left:-3.5rem; }
+#in{ width:3rem; height:3rem;  border-radius:50%; position:absolute; left:50%; top:50%; margin-left:-1.5rem; margin-top:-1.5rem;} 
+#out span{ width:1rem; height:1rem; border:1px solid blue; border-radius:50%; position:absolute; margin-left:-0.5rem; margin-top:-0.5rem; text-align:center; line-height:1rem; font-size:50px; font-weight:bold; animation:run 3s linear infinite; box-shadow:0 -5px 10px green,5px 0 10px blue,0 5px 10px yellow,-5px 0 10px pink; }
+#in div{ width:0.7rem; height:0.7rem; border:1px solid blue; border-radius:50%; position:absolute; margin-left:-0.4rem; margin-top:-0.4rem; text-align:center; line-height:0.8rem; font-size:35px; font-weight:bold;  animation:run 3s linear infinite; box-shadow:0 -5px 10px green,5px 0 10px blue,0 5px 10px yellow,-5px 0 10px pink;}
 
 
 #add,#minus,#multiply,#divide,#sign,#clear{ width:1rem; height:0.5rem; background:#000; color:#fff; font-size:0.5rem; line-height:0.5rem; text-align:center; }
@@ -35,21 +50,3 @@ canvas{ width:100%; height:100%; display:none; }
 #clear{ position:absolute; left:5.6rem; bottom:0.5rem; }
 #result{ width:100%; height:2rem;  color:#fff; text-align:center; line-height:2rem;}
 
-/*-----------------------page4-----------------------*/
-
-
-#page4 section{ width:100%; height:14rem;  position:absolute; left:0; bottom:0; overflow:hidden;}
-.box{ width:5rem; height:5rem; position:absolute; left:50%; top:50%; margin-left:-2.5rem; margin-top:-2.5rem; transform-style:preserve-3d; transform:perspective(1200px) rotateX(30deg) rotateY(-60deg); }
-.box div{ width:100%; height:100%; position:absolute; left:0; top:0; }
-.box div img{ width:100%; height:100%; }
-.front{ transform:translateZ(2.5rem);}
-.back{transform:translateZ(-2.5rem); }
-.left{  transform:translateX(-2.5rem) rotateY(90deg);}
-.right{ transform:translateX(2.5rem) rotateY(90deg);}
-.top{  transform:translateY(-2.5rem) rotateX(90deg); }
-.bottom{ transform:translateY(2.5rem) rotateX(90deg);}
-
-/*-----------------------page4-----------------------*/
-
-#box3{ width:100%; height:14rem; position:absolute; left:0; bottom:0; overflow:hidden; }
-#div1{ width:3rem; height:3rem; background:blue; position:absolute; left:50%;  bottom:0; margin-left:-1.5rem;}

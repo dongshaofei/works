@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width==device-width,initial-scale=1.0,user-scalable=no" />
+	<title></title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css">
+	<script src="js/jquery-1.8.2.min.js"></script>
+	<script src="js/jquery.mobile-1.2.0.min.js"></script>
+	<script src="js/zepto.min.js"></script>
+	<script src="js/touch.js"></script>
+	<script src="js/move.js"></script>
+	<script src="js/index.js"></script>
+</head>
+<body>
+	<!-- ------------------------------ page1 ------------------------------- -->
+	<div data-role="page" id="page1" data-theme="b">
+		<header data-role="header">
+			<a href="#" data-icon="refresh" onClick="location.reload()">刷新</a>
+			<h1>个人简历</h1>
+		</header>
+		<section>
+			<ul data-role="listview">
+				<li><a href="#page2" data-transition="flip">个人信息</a></li>
+				<li><a href="#page4" data-transition="slidedown">IT 技能</a></li>
+				<li><a href="#page3" data-transition="slide ">工作经历</a></li>
+				<li><a href="#page5" data-transition="flow ">简易计算器</a></li>
+			</ul>
+		</section>
+		<footer data-role="footer" data-position="fixed">
+			<h2></h2>
+		</footer>
+	</div>
+	
+	<!-- ------------------------------ page2 ------------------------------- -->
+	<div data-role="page" id="page2" data-theme="b">
+		<header data-role="header" id="header2">
+			<a href="#page1" data-icon="back" data-rel="back">返回</a>
+			<h1>个人信息</h1>
+			<a href="#" data-icon="refresh" onClick="location.reload()">刷新</a>
+		</header>
+		<section>
+			<div id="information">
+				<p>姓名: &nbsp董少飞</p>
+				<div class='circle'><img src="img/15.png"></div>
+				<p>籍贯: &nbsp河北</p>
+				<p>身高: &nbsp170CM</p> 
+                <p>年龄: &nbsp24岁</p>
+                <p>感情: &nbsp单身</p>
+                <p>学历: &nbsp本科</p>
+                <p>院校: &nbsp河北科技学院</p>
+			</div>
+			<div id='box2'>
+				<audio id="oA"></audio>
+				<canvas id="oc"></canvas>
+			</div>
+		</section>
+	</div>
+
+	<!-- ------------------------------ page3 ------------------------------- -->
+	<div data-role="page" id="page3" data-theme="b">
+		<header data-role="header">
+			<a href="#page1" data-icon="back" data-rel="back">返回</a>
+			<h1>工作经历</h1>
+			<a href="#" data-icon="refresh" onClick="location.reload()">刷新</a>
+		</header>
+		<section>
+			<p>公司: 河北智美网络科技有限公司 </p>
+			<p>职位: 前端开发工程师 </p>
+			<p>项目经验 :</p>
+			<p>2015/07-2015/09 </p>
+ 			<p>主要负责: 主要按照设计师提供的设计图进行切图,用div+css布局静态页面</p>
+			<p>2015/10-2016/02 </p>
+			<p>眼妈妈官网 (http://www.yanmama.com/)</p>
+			<p>主要负责: 负责页面的制作、js效果的实现。主要按照设计师提供的设计图进行切图,用div+css布局页面,用JavaScript、jQuery等脚本实现页面效果,以及处理各个浏览器之间的兼容性问题</p>
+			<p>2016/03-2016/08</p>
+			<p>眼妈妈手机站  [移动端] </p>
+			<p>主要负责: 响应式布局;主要按照设计师提供的设计图,根据要求实现相应的页面布局</p>
+		</section>
+		
+	</div>
+
+	
+	<!-- ------------------------------ page4 ------------------------------- -->
+	<div data-role="page" id="page4" data-theme="b">
+		<header data-role="header">
+			<a href="#page1" data-icon="back" data-rel="back">返回</a>
+			<h1>IT 技能</h1>
+			<a href="#" data-icon="refresh" onClick="location.reload()">刷新</a>
+		</header>
+		<section>
+			<div id="box3">
+				<ul>
+					<li>
+						<img src="img/7.jpg"/>
+						<p><span>一、 熟练掌握HTML、div+css,能够手写符合w3c标准的页面代码;能够很好的把握IE及其他主浏览器的兼容性问题。</span></p>
+					</li>
+					<li>
+						<img src="img/8.jpg"/>
+						<p><span>二、 熟悉已标准化的HTML5/CSS3新特性,熟悉移动端常用的布局以及开发技巧;能够熟练运用canvas和svg</span></p>
+					</li>
+					<li>
+						<img src="img/9.jpg"/>
+						<p><span>三、 熟练javaScript,熟悉js面向对象中的继承、封装、单体模式、工厂模式、原型模式等，坚持降低程序耦合度、提高代码复用性的设计理念,使代码高度模块化</span></p>
+					</li>
+					<li>
+						<img src="img/10.jpg"/>
+						<p><span>四、 熟练运用ajax、jsonp技术与后台处理数据,熟悉浏览器和服务器交互机制。</span></p>
+					</li>
+					<li>
+						<img src="img/11.jpg"/>
+						<p><span>五、 熟悉jQuery,jQueryMobile,zepto等常用类库和angular.js,bootstarp等常用框架以及hammar、swiper等常用插件以提高工作效率。</span></p>
+					</li>
+					<li>
+						<img src="img/12.jpg"/>
+						<p><span>六、 熟悉c语言,了解c++/PHP/nodejs</span></p>
+					</li>
+					<li>
+						<img src="img/13.jpg"/>
+				        <p><span>七、 熟练运用sublime,webStorm等常用编辑器，熟悉Photoshop等设计软件</span></p>
+					</li>
+					<li>
+						<img src="img/14.jpg"/>
+						<p><span>八、 熟悉less,了解sass;了解SVN、Git管理工具和Grunt/Gulp等前端自动化工具;能使用官方文档进行日常开发工作。</span></p>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</div>
+
+	<!-- ------------------------------ page5 ------------------------------- -->
+
+	<div data-role="page" id="page5" data-theme="b">
+		<header data-role="header">
+			<a href="#page1" data-icon="back" data-rel="back">返回</a>
+			<h1>简易计算器</h1>
+			<a href="#" data-icon="refresh" onClick="location.reload()">刷新</a>
+		</header>
+		<section>
+			<div id="out">
+					<div id="in"></div>
+			</div>
+			<div id="add">+</div>
+			<div id="minus">-</div>
+			<div id="multiply">*</div>
+			<div id="divide">/</div>
+			<div id="sign">=</div>
+			<div id="clear">AC</div>
+			<div id="result"></div>
+		</section>
+		
+	</div>
+
+</body>
+</html>
